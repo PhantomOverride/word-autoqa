@@ -1,0 +1,14 @@
+{
+  "rules": [
+    {
+      "pass-message": "[ + ] A Random Example!",
+      "find": "[Aa].[Rrandom].[eE]xample!",
+      "fail-message": "[ ! ] Contains an example."
+    },
+    {
+      "pass-message": "[ + ] File is not rude",
+      "find": "your mother was [a-z] [hH][aA]mster and your father smells of elderberries",
+      "fail-message": "[ ! ] File is very rude."
+    }
+  ]
+}

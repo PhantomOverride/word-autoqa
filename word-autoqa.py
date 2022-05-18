@@ -39,9 +39,11 @@ def get_docx_text(path):
     tree = XML(xml_content)
 
     paragraphs = []
-    for paragraph in tree.getiterator(PARA):
+    #for paragraph in tree.getiterator(PARA): # getiterator is deprecated
+    for paragraph in tree.iter(PARA):
         texts = [node.text
-                 for node in paragraph.getiterator(TEXT)
+                 #for node in paragraph.getiterator(TEXT) # getiterator is deprecated
+                 for node in paragraph.iter(TEXT)
                  if node.text]
         if texts:
             paragraphs.append(''.join(texts))
@@ -81,9 +83,20 @@ def validate(text, rules):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Validate document text against a set of rules.")
     parser.add_argument("file", help='Name of DOCX file')
+    parser.add_argument("-c", "--no-color", help="Do not use terminal colours", action="store_true")
     args = parser.parse_args()
-    print("[ + ] Running validation rules against file", args.file)
 
+    if ( args.no_color ):
+        bcolors.HEADER = ''
+        bcolors.OKBLUE = ''
+        bcolors.OKGREEN = ''
+        bcolors.WARNING = ''
+        bcolors.FAIL = ''
+        bcolors.ENDC = ''
+        bcolors.BOLD = ''
+        bcolors.UNDERLINE = ''
+
+    print("[ + ] Running validation rules against file", args.file)
     text = get_docx_text(args.file)
     rules = get_rules(join(dirname(__file__), "rules/"))
     validate(text, rules)

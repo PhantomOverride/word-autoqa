@@ -64,8 +64,21 @@ def get_rules(path):
 
     return rules
 
-
 def validate(text, rules):
+    passed = failed = 0
+
+    for rule in rules:
+        match = re.findall(rule["find"], text)
+        if match:
+            failed += 1
+            print(bcolors.FAIL, rule["fail-message"], "(\"" + match[0] + "\")", "[", len(match), "]", bcolors.ENDC)
+        else:
+            passed += 1
+            #print(bcolors.OKGREEN, rule["pass-message"], bcolors.ENDC)
+
+    print("[ + ] Finished.", passed, "rules passed,", failed, "failed.")
+
+def validate_old(text, rules):
     passed = failed = 0
 
     for rule in rules:

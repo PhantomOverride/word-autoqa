@@ -64,31 +64,18 @@ def get_rules(path):
 
     return rules
 
-def validate(text, rules):
+def validate(text, rules, passing=False):
     passed = failed = 0
 
     for rule in rules:
         match = re.findall(rule["find"], text)
         if match:
             failed += 1
-            print(bcolors.FAIL, rule["fail-message"], "(\"" + match[0] + "\")", "[", len(match), "]", bcolors.ENDC)
+            print(bcolors.FAIL, rule.get("fail-message", "Rule fail text not set"), "(\"" + match[0] + "\")", "[", len(match), "]", bcolors.ENDC)
         else:
             passed += 1
-            #print(bcolors.OKGREEN, rule["pass-message"], bcolors.ENDC)
-
-    print("[ + ] Finished.", passed, "rules passed,", failed, "failed.")
-
-def validate_old(text, rules):
-    passed = failed = 0
-
-    for rule in rules:
-        match = re.search(rule["find"], text)
-        if match:
-            failed += 1
-            print(bcolors.FAIL, rule["fail-message"], "(\"" + match.group() + "\")", bcolors.ENDC)
-        else:
-            passed += 1
-            #print(bcolors.OKGREEN, rule["pass-message"], bcolors.ENDC)
+            if passing:
+                print(bcolors.OKGREEN, rule.get("pass-message","Rule pass text not set"), bcolors.ENDC)
 
     print("[ + ] Finished.", passed, "rules passed,", failed, "failed.")
 
@@ -97,6 +84,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Validate document text against a set of rules.")
     parser.add_argument("file", help='Name of DOCX file')
     parser.add_argument("-c", "--no-color", help="Do not use terminal colours", action="store_true")
+    parser.add_argument("-p", "--passing", help="Print success messages for rules that do not match", action="store_true")
     args = parser.parse_args()
 
     if ( args.no_color ):
@@ -112,4 +100,4 @@ if __name__ == "__main__":
     print("[ + ] Running validation rules against file", args.file)
     text = get_docx_text(args.file)
     rules = get_rules(join(dirname(__file__), "rules/"))
-    validate(text, rules)
+    validate(text, rules, args.passing)

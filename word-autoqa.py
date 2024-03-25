@@ -71,7 +71,7 @@ def validate(text, rules, passing=False):
         match = re.findall(rule["find"], text)
         if match:
             failed += 1
-            print(bcolors.FAIL, rule.get("fail-message", "Rule fail text not set"), "(\"" + match[0] + "\")", "[", len(match), "]", bcolors.ENDC)
+            print(bcolors.FAIL, rule.get("fail-message", "Rule fail text not set"), "(\"" + match[0] + "\" from pattern \"" + rule.get("find") + "\")", "[", len(match), "]",bcolors.ENDC)
         else:
             passed += 1
             if passing:

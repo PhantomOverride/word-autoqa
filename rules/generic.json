@@ -2,7 +2,7 @@
   "rules": [
     {
       "pass-message": "[ + ] A Random Example!",
-      "find": "[Aa].[Rrandom].[eE]xample!",
+      "find": "[Aa].[Rr]andom.[eE]xample!",
       "fail-message": "[ ! ] Contains an example."
     },
     {

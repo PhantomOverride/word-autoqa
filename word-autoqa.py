@@ -82,7 +82,7 @@ def validate(text, rules, passing=False):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Validate document text against a set of rules.")
-    parser.add_argument("file", help='Name of DOCX file')
+    parser.add_argument("file", nargs='+', help='Name of DOCX file(s)')
     parser.add_argument("-c", "--no-color", help="Do not use terminal colours", action="store_true")
     parser.add_argument("-p", "--passing", help="Print success messages for rules that do not match", action="store_true")
     args = parser.parse_args()
@@ -97,7 +97,17 @@ if __name__ == "__main__":
         bcolors.BOLD = ''
         bcolors.UNDERLINE = ''
 
-    print("[ + ] Running validation rules against file", args.file)
-    text = get_docx_text(args.file)
-    rules = get_rules(join(dirname(__file__), "rules/"))
-    validate(text, rules, args.passing)
+    if(len(args.file)>1):
+        print("[ + ] Validating",len(args.file),"files.")
+        print("[ + ]" + "-"*70)
+
+    for somefile in args.file:
+        print("[ + ] Running validation rules against file", somefile)
+        text = get_docx_text(somefile)
+        rules = get_rules(join(dirname(__file__), "rules/"))
+        validate(text, rules, args.passing)
+        if(len(args.file)>1):
+            print("[ + ] " + "-"*70)
+    
+    if(len(args.file)>1):
+        print("[ + ] Finished validating",len(args.file),"files.")

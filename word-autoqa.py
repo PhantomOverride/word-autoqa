@@ -58,7 +58,10 @@ def get_rules(path):
         try:
             with open(path+file) as f:
                 contents = f.read()
-                rules += json.loads(contents)["rules"]
+                current_rules = json.loads(contents)["rules"]
+                for r in current_rules:
+                    r["source"] = file
+                rules += current_rules
         except:
             print("[ ! ] Could not process file", path+file, ", skipping...")
 
@@ -71,11 +74,11 @@ def validate(text, rules, passing=False):
         match = re.findall(rule["find"], text)
         if match:
             failed += 1
-            print(bcolors.FAIL, rule.get("fail-message", "Rule fail text not set"), "(\"" + match[0] + "\" from pattern \"" + rule.get("find") + "\")", "[", len(match), "]",bcolors.ENDC)
+            print(bcolors.FAIL, "[ ! ]", "["+rule.get("source", "Rule source not set")+"]", rule.get("fail-message", "Rule fail text not set"), "(\"" + match[0] + "\" from pattern \"" + rule.get("find") + "\")", "[", len(match), "]",bcolors.ENDC)
         else:
             passed += 1
             if passing:
-                print(bcolors.OKGREEN, rule.get("pass-message","Rule pass text not set"), bcolors.ENDC)
+                print(bcolors.OKGREEN, "[ + ]", "["+rule.get("source", "Rule source not set")+"]", rule.get("pass-message","Rule pass text not set"), bcolors.ENDC)
 
     print("[ + ] Finished.", passed, "rules passed,", failed, "failed.")
 

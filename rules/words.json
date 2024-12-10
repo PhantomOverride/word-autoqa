@@ -1,0 +1,30 @@
+{
+  "rules": [
+    {
+      "pass-message": "Word: Rouge",
+      "find": "(?<!\\S)[rR]ouge(?![\\w])",
+      "fail-message": "Rouge is a type of make-up. Did you mean Rogue?"
+    },
+    {
+      "pass-message": "Word: Dose",
+      "find": "(?<!\\S)[Dd]ose(?![\\w])",
+      "fail-message": "Did you mean does?."
+    },
+    {
+      "pass-message": "Word: Witch",
+      "find": "(?<!\\S)[wW]itch(?![\\w])",
+      "fail-message": "Witches deal with witchcraft. Did you mean Which?"
+    },
+    {
+      "pass-message": "Word: Weather",
+      "find": "(?<!\\S)[Ww]eather(?![\\w])",
+      "fail-message": "Whether or not you meant to type \"weather\" is up to you."
+    },
+    {
+      "pass-message": "Word: Broken",
+      "find": "(?<!\\S)[Bb]roken(?![\\w])(?! [aA]ccess [cC]ontrol)",
+      "fail-message": "\"Broken\" may be non-descriptive.",
+      "confidence": 1
+    }
+  ]
+}

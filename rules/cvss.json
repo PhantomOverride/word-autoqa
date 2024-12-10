@@ -1,0 +1,28 @@
+{
+  "rules": [
+    {
+      "pass-message": "CVSS v3.x",
+      "find": "CVSS:3\\.[0,1]/AV",
+      "fail-message": "Replace the CVSS 3.x vector with 4.0.",
+      "confidence": 3
+    },
+    {
+      "pass-message": "Empty CVSS v3.x vector",
+      "find": "CVSS:3\\.[0,1]/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N",
+      "fail-message": "Possibly forgot to change template vector.",
+      "confidence": 3
+    },
+    {
+      "pass-message": "Empty CVSS v4.0 vector",
+      "find": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:N/SC:N/SI:N/SA:N",
+      "fail-message": "Possibly forgot to change template vector.",
+      "confidence": 3
+    },
+    {
+      "pass-message": "Hashtag in front of CVSS vector",
+      "find": "#CVSS:[3,4]\\.[0,1]/AV:",
+      "fail-message": "Hashtag in front of CVSS vector.",
+      "confidence": 3
+    }
+  ]
+}

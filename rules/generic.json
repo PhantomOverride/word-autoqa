@@ -6,6 +6,12 @@
       "fail-message": "Contains an example."
     },
     {
+      "pass-message": "Another cool example",
+      "find": "[Aa]nother [cCool] [eE]xample",
+      "fail-message": "Contains an example. Note the optional confidence attribute (1-3, 1=low confidence and prone to false positives, 3=reliable, default 2).",
+      "confidence": 1
+    },
+    {
       "pass-message": "File is not rude",
       "find": "your mother was [a-z] [hH][aA]mster and your father smells of elderberries",
       "fail-message": "File is very rude."

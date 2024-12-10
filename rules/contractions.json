@@ -1,0 +1,39 @@
+{
+  "rules": [
+    {
+      "pass-message": "Contraction: it's",
+      "find": "(?<!\\S)[iI]t[’'‘]s(?![\\w])",
+      "fail-message": "Replace \"it's\" with \"it is\"."
+    },
+    {
+      "pass-message": "Contraction 'll",
+      "find": "(?<=\\S)[’'‘]ll(?![\\w])",
+      "fail-message": "Replace \"'ll\" with \"will\"."
+    },
+    {
+      "pass-message": "Contraction 're",
+      "find": "(?<=\\S)[’'‘]re(?![\\w])",
+      "fail-message": "Replace \"'re\" with \"are\"."
+    },
+    {
+      "pass-message": "Contraction 've",
+      "find": "(?<=\\S)[’'‘]ve(?![\\w])",
+      "fail-message": "Replace \"'ve\" with \"have\"."
+    },
+    {
+      "pass-message": "Contraction 't",
+      "find": "(?<=\\S)[’'‘]t(?![\\w])",
+      "fail-message": "Replace \"'t\" with \"not\"."
+    },
+    {
+      "pass-message": "Contraction 'd",
+      "find": "(?<=\\S)[’'‘]d(?![\\w])",
+      "fail-message": "Replace \"'d\" with \"had\" or \"would\"."
+    },
+    {
+      "pass-message": "Contraction: that's",
+      "find": "(?<!\\S)[Tt]hat[’'‘]s(?![\\w])",
+      "fail-message": "Replace \"that's\" with \"that is\"."
+    }
+  ]
+}

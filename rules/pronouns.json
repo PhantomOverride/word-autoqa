@@ -1,0 +1,80 @@
+{
+  "rules": [
+    {
+      "pass-message": "Word: you",
+      "find": "(?<!\\S)(?<![Ss]omething )[Yy]ou(?![\\w])(?! [sS][eE][eE] [iI][sS] [wW][hH][aA][tT])",
+      "fail-message": "Consider revising pronouns for a more formal tone."
+    },
+    {
+      "pass-message": "Word: your",
+      "find": "(?<!\\S)[Yy]our(?![\\w])(?! browser sent a request)",
+      "fail-message": "Consider revising pronouns for a more formal tone."
+    },
+    {
+      "pass-message": "Word: yourself",
+      "find": "(?<!\\S)[Yy]ourself(?![\\w])",
+      "fail-message": "Consider revising pronouns for a more formal tone."
+    },
+    {
+      "pass-message": "Word: we",
+      "find": "(?<!\\S)[Ww]e(?![\\w])",
+      "fail-message": "Consider revising pronouns for a more formal tone."
+    },
+    {
+      "pass-message": "Word: us",
+      "find": "(?<!\\S)[Uu]s(?![\\w])",
+      "fail-message": "Consider revising pronouns for a more formal tone."
+    },
+    {
+      "pass-message": "Word: our",
+      "find": "(?<!\\S)[Oo]ur(?![\\w])",
+      "fail-message": "Consider revising pronouns for a more formal tone."
+    },
+    {
+      "pass-message": "Word: he",
+      "find": "(?<!\\S)[Hh]e(?![\\w])",
+      "fail-message": "Consider revising pronouns for a more formal tone."
+    },
+    {
+      "pass-message": "Word: his",
+      "find": "(?<!\\S)[Hh]is(?![\\w])",
+      "fail-message": "Consider revising pronouns for a more formal tone."
+    },
+    {
+      "pass-message": "Word: him",
+      "find": "(?<!\\S)[Hh]im(?![\\w])",
+      "fail-message": "Consider revising pronouns for a more formal tone."
+    },
+    {
+      "pass-message": "Word: she",
+      "find": "(?<!\\S)[Ss]he(?![\\w])",
+      "fail-message": "Consider revising pronouns for a more formal tone."
+    },
+    {
+      "pass-message": "Word: hers",
+      "find": "(?<!\\S)[Hh]ers(?![\\w])",
+      "fail-message": "Consider revising pronouns for a more formal tone."
+    },
+    {
+      "pass-message": "Word: her",
+      "find": "(?<!\\S)[Hh]er(?![\\w])",
+      "fail-message": "Consider revising pronouns for a more formal tone."
+    },
+    {
+      "pass-message": "Word: I",
+      "find": "(?<!\\S)[I](?![\\w]| ?[.=+<>%:\\n])",
+      "fail-message": "Consider revising pronouns for a more formal tone.",
+      "confidence": 1
+    },
+    {
+      "pass-message": "Word: me",
+      "find": "(?<!\\S)[Mm]e(?![\\w])",
+      "fail-message": "Consider revising pronouns for a more formal tone."
+    },
+    {
+      "pass-message": "Word: my",
+      "find": "(?<!\\S)[Mm]y(?![\\w])",
+      "fail-message": "Consider revising pronouns for a more formal tone."
+    }
+  ]
+}

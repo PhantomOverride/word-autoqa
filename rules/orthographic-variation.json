@@ -1,0 +1,20 @@
+{
+  "rules": [
+    {
+      "pass-message": "Normalisation: JavaScript",
+      "find": "[jJ]ava [sS]cripts?(?![\\w])",
+      "fail-message": "Prefer JavaScript as one word."
+    },
+    {
+      "pass-message": "Normalisation: JavaScript",
+      "find": "(?<![</])([jJ]avascript|java[sS]cripts?)(?![\\w])",
+      "fail-message": "Prefer JavaScript.",
+      "confidence": 1
+    },
+    {
+      "pass-message": "Normalisation: HTML",
+      "find": "(?<!<)(?<!</)(?<!x)(?<!: )(?<!text/)(?<!<\\![dD][oO][cC][tT][yY][pP][eE] )(?<!\\.)[hH]tml[s-]?(?![\\w^/])",
+      "fail-message": "Prefer HTML in capital letters since it is an acronym."
+    }
+  ]
+}

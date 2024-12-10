@@ -1,0 +1,150 @@
+{
+  "rules": [
+    {
+      "pass-message": "Template: <Customer Name>",
+      "find": "<Customer Name>",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: <Client Name>",
+      "find": "<Client Name>",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: <Customer>",
+      "find": "<Customer>",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: <Client>",
+      "find": "<Client>",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: <Date>/<Dates>",
+      "find": "<Dates?>",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: <Project Name>",
+      "find": "<Project Name>",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: <Author>/<Authors>",
+      "find": "<Authors?>",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: <?>",
+      "find": "<\\?>",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: <Text>",
+      "find": "<Text>",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: Firstname",
+      "find": "Firstname",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: Lastname",
+      "find": "Lastname",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: Firstname Lastname",
+      "find": "[fF]irstname[. ][lL]astname",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: first.last",
+      "find": "[fF]irst[. ][lL]ast",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: first.last@example.com",
+      "find": "first.last@example.com",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: 461234567890",
+      "find": "461234567890",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: 2018-00-00",
+      "find": "2018-00-00",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: 2019-00-00",
+      "find": "2019-00-00",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: 2020-00-00",
+      "find": "2020-00-00",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: 2021-00-00",
+      "find": "2021-00-00",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: 2022-00-00",
+      "find": "2022-00-00",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: 2023-00-00",
+      "find": "2030-00-00",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: 2024-00-00",
+      "find": "2024-00-00",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: 2025-00-00",
+      "find": "2025-00-00",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: < --- >",
+      "find": "< --- >",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: <--->",
+      "find": "<--->",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: <Title>",
+      "find": "<Title>",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: <Reference>/<References>",
+      "find": "<References?>",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Template: <Username>",
+      "find": "<Username>",
+      "fail-message": "Template text."
+    },
+    {
+      "pass-message": "Possible template: example.com",
+      "find": "example.com",
+      "fail-message": "Possible template text.",
+      "confidence": 1
+    }
+  ]
+}

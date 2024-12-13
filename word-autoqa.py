@@ -17,10 +17,13 @@ class bcolors:
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'
     WARNING = '\033[93m'
+    BLACK = '\033[30m'
     FAIL = '\033[91m'
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+    BGWHITE = '\033[44m'
+    BGYELLOW = '\033[103m'
 
 
 def get_docx_text(path):
@@ -88,6 +91,12 @@ def validate(text, rules, passing=False, context=False):
         
                     print("  [ Match", ctx_counter, "] " , "-"*70)
                     
+                    #Inject colour sequences. This will not work if match contains a newline due to the section below
+                    ctx_colour_start = start-context_start
+                    ctx_colour_end = (end-context_start) + len(bcolors.BLACK+ bcolors.BGYELLOW)
+                    context_text = context_text[:ctx_colour_start] + bcolors.BLACK + bcolors.BGYELLOW + context_text[ctx_colour_start:]
+                    context_text = context_text[:ctx_colour_end] + bcolors.ENDC + bcolors.WARNING + context_text[ctx_colour_end:]
+
                     # Want to print with colour and indentation, but context_text may contain linebreaks
                     context_text_lines = context_text.splitlines()
                     for context_text_line in context_text_lines:
@@ -117,10 +126,13 @@ if __name__ == "__main__":
         bcolors.OKBLUE = ''
         bcolors.OKGREEN = ''
         bcolors.WARNING = ''
+        bcolors.BLACK = ''
         bcolors.FAIL = ''
         bcolors.ENDC = ''
         bcolors.BOLD = ''
         bcolors.UNDERLINE = ''
+        bcolors.BGWHITE = ''
+        bcolors.BGYELLOW = ''
 
     if(len(args.file)>1):
         print("[ + ] Validating", len(args.file), "files.")
